@@ -68,6 +68,11 @@ export HTTPS_PROXY=$http_proxy
 
 *If you use Docker GUI you can set proxy there* (but you still might want to read on).
 
+Additionally do [this](https://docs.docker.com/network/proxy/#configure-the-docker-client) to have proxy inside running containers automatically.
+
+
+#### Docker Toolbox (old Virtualbox-based docker environment)
+
 Docker accepts the uppercase variant for environment variables. However, if you use Docker Toolbox for Windows or some implementation that is based on VirtualBox, you must make sure that the proxy is correctly set before the Virtual Machine is set up as the proxy settings will permanently be injected to the VM. So just delete the "default" machine and setup a new docker-machine whenever your proxy settings change.
 
 Most of the time you do **not** want to put the proxy variables inside the Dockerfile using `ENV` because that means that the image cannot be run on a different network/machine. Docker should pick up on the proxies when you run the container anyway and route traffic accordingly.
